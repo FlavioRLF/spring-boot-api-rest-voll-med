@@ -1,0 +1,56 @@
+### IGNORAR ARQUIVOS GERADOS PELO MAVEN ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### IGNORAR ARQUIVOS DO LOG DO SPRING BOOT ###
+logs/
+*.log
+hs_err_pid*
+
+### IGNORAR ARQUIVOS TEMPORÁRIOS E CACHES ###
+*.swp
+*.swo
+*.DS_Store
+*.class
+*.jar
+*.war
+*.ear
+
+### IGNORAR CONFIGURAÇÕES DO INTELLIJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+### IGNORAR CONFIGURAÇÕES DO ECLIPSE ###
+.settings/
+.project
+.classpath
+
+### IGNORAR CONFIGURAÇÕES DO VS CODE ###
+.vscode/
+
+### IGNORAR ARQUIVOS DO LOMBOK ###
+lombok.config
+
+### IGNORAR CONFIGURAÇÕES DO SISTEMA OPERACIONAL ###
+Thumbs.db
+.DS_Store
+ehthumbs.db
+Icon?
+__MACOSX/
+
+### IGNORAR BANCO DE DADOS EMBARCADO E POSTGRESQL ###
+*.db
+*.sqlite
+*.sql
+pgdata/
