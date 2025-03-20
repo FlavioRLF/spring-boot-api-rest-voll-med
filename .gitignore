@@ -54,3 +54,5 @@ __MACOSX/
 *.sqlite
 *.sql
 pgdata/
+
+.env

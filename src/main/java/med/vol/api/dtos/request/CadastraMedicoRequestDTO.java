@@ -7,16 +7,21 @@ import java.io.Serializable;
 
 @Data
 @Builder
-public class CadastraMedicoRequest implements Serializable {
+public class CadastraMedicoRequestDTO implements Serializable {
 
+    @NonNull
     private String nome;
 
+    @NonNull
     private String email;
 
+    @NonNull
     private String telefone;
 
+    @NonNull
     private String crm;
 
+    @NonNull
     private String especialidade;
 
     private EnderecoDTO endereco;
