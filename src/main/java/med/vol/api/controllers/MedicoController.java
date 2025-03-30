@@ -1,6 +1,7 @@
 package med.vol.api.controllers;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import med.vol.api.dtos.request.CadastraMedicoRequestDTO;
 import med.vol.api.models.entity.Medico;
 import med.vol.api.repository.MedicoRepository;
@@ -26,7 +27,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public Integer cadastraMedico(@RequestBody final CadastraMedicoRequestDTO requisicao) {
+    public Integer cadastraMedico(@RequestBody @Valid final CadastraMedicoRequestDTO requisicao) {
         logger.info("DADOS DA REQUISICAO ID = {}", requisicao.toString());
         final Medico medico = medicoConverter.cadastroDtoToEntity(requisicao);
         medicoRepository.save(medico);
