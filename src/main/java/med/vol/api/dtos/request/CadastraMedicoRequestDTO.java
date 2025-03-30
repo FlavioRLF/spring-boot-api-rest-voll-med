@@ -1,5 +1,9 @@
 package med.vol.api.dtos.request;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import med.vol.api.dtos.EnderecoDTO;
 
@@ -9,20 +13,23 @@ import java.io.Serializable;
 @Builder
 public class CadastraMedicoRequestDTO implements Serializable {
 
-    @NonNull
+    @NotBlank
     private String nome;
 
-    @NonNull
+    @NotBlank
     private String email;
 
-    @NonNull
+    @NotBlank
     private String telefone;
 
     @NonNull
+    @Pattern(regexp = "\\d{4,6}")
     private String crm;
 
-    @NonNull
+    @NotBlank
     private String especialidade;
 
+    @NotNull
+    @Valid
     private EnderecoDTO endereco;
 }

@@ -1,5 +1,7 @@
 package med.vol.api.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.io.Serializable;
@@ -7,22 +9,23 @@ import java.io.Serializable;
 @Data
 public class EnderecoDTO implements Serializable {
 
-    @NonNull
+    @NotBlank
     private String logradouro;
 
     private String numero;
 
     private String complemento;
 
-    @NonNull
+    @NotBlank
     private String bairro;
 
-    @NonNull
+    @NotBlank
     private String cidade;
 
-    @NonNull
+    @NotBlank
     private String uf;
 
-    @NonNull
+    @NotBlank
+    @Pattern(regexp = "\\d{8}")
     private String cep;
 }
