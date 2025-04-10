@@ -2,9 +2,11 @@ package med.vol.api.controllers;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import med.vol.api.dtos.MedicoDTO;
 import med.vol.api.dtos.request.CadastraMedicoRequestDTO;
 import med.vol.api.models.entity.Medico;
 import med.vol.api.repository.MedicoRepository;
+import med.vol.api.service.MedicoService;
 import med.vol.api.utils.MedicoConverter;
 import org.apache.catalina.connector.Response;
 import org.slf4j.Logger;
@@ -26,6 +28,8 @@ public class MedicoController {
     @Autowired
     private MedicoConverter medicoConverter;
 
+    @Autowired
+    private MedicoService medicoService;
 
     @PostMapping
     @Transactional
@@ -40,5 +44,11 @@ public class MedicoController {
     @RequestMapping("/lista")
     public List<Medico> listaMedicos(){
         return medicoRepository.findAll();
+    }
+
+    @GetMapping
+    @RequestMapping("/dto")
+    public List<MedicoDTO> listaMedicosDTO() {
+        return medicoService.buscarTodosDTOs();
     }
 }
