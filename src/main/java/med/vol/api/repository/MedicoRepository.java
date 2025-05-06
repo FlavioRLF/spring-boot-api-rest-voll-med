@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
-    @Query(value = "SELECT m.id, m.nome, m.email, m.especialidade " +
+    @Query(value = "SELECT m.id, m.nome, m.email, m.crm , m.especialidade " +
             "FROM medicos m",
             nativeQuery = true)
     List<Object[]> findMedicosRaw();

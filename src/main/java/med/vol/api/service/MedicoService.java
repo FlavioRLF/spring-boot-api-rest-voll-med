@@ -22,7 +22,8 @@ public class MedicoService {
                         ((Number) obj[0]).longValue(),
                         (String) obj[1],
                         (String) obj[2],
-                        (String) obj[3]
+                        (String) obj[3],
+                        (String) obj[4]
                 ))
                 .toList();
     }
