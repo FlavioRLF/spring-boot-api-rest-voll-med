@@ -13,7 +13,7 @@
 
 	<groupId>med.vol</groupId>
 	<artifactId>api</artifactId>
-	<version>0.0.1-SNAPSHOT.10</version>
+	<version>0.0.1-SNAPSHOT.11</version>
 	<name>api</name>
 	<description>API Rest da aplicação Volt.med</description>
 

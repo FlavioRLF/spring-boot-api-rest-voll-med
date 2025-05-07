@@ -59,7 +59,7 @@ public class MedicoController {
 
     @GetMapping("/paginacao/dto")
     public Page<MedicoDTO> listaMedicosMapToDTO(@PageableDefault(size=5, sort = {"nome"}) Pageable pageable) {
-        return medicoRepository.findAll(pageable).map(MedicoDTO::new);
+        return medicoRepository.findAllByAtivoTrue(pageable).map(MedicoDTO::new);
     }
 
 
@@ -70,5 +70,18 @@ public class MedicoController {
             new IllegalArgumentException("Médico com ID " + requisicao.getId() + " não encontrado.")
         );
         medico.atualizaMedico(requisicao);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deletaMedico(@PathVariable Long id) {
+        medicoRepository.deleteById(id);
+    }
+
+    @DeleteMapping("/exclusaoLogica/{id}")
+    @Transactional
+    public void excluiMedico(@PathVariable Long id) {
+        var medico = medicoRepository.getReferenceById(id);
+        medico.excluir();
     }
 }

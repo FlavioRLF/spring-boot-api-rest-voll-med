@@ -39,6 +39,9 @@ public class Medico implements Serializable {
     @Embedded
     private Endereco endereco;
 
+    @Column(name = "ativo")
+    private Boolean ativo;
+
     public void atualizaMedico(AtualizaMedicoDTO requisicao) {
         if (requisicao.getNome() != null && !requisicao.getNome().isBlank()) {
             this.nome = requisicao.getNome();
@@ -49,5 +52,9 @@ public class Medico implements Serializable {
         if (requisicao.getEndereco() != null) {
             this.endereco.atualizaEndereco(requisicao.getEndereco());
         }
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
