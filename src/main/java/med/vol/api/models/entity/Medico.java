@@ -2,6 +2,7 @@ package med.vol.api.models.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import med.vol.api.dtos.AtualizaMedicoDTO;
 import med.vol.api.models.enums.EnumEspecialidade;
 
 import java.io.Serializable;
@@ -37,4 +38,16 @@ public class Medico implements Serializable {
 
     @Embedded
     private Endereco endereco;
+
+    public void atualizaMedico(AtualizaMedicoDTO requisicao) {
+        if (requisicao.getNome() != null && !requisicao.getNome().isBlank()) {
+            this.nome = requisicao.getNome();
+        }
+        if (requisicao.getTelefone() != null && !requisicao.getTelefone().isBlank()) {
+            this.telefone = requisicao.getTelefone();
+        }
+        if (requisicao.getEndereco() != null) {
+            this.endereco.atualizaEndereco(requisicao.getEndereco());
+        }
+    }
 }
