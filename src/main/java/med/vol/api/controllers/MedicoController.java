@@ -69,9 +69,6 @@ public class MedicoController {
         var medico = medicoRepository.findById(requisicao.getId()).orElseThrow(() ->
             new IllegalArgumentException("Médico com ID " + requisicao.getId() + " não encontrado.")
         );
-        logger.info(requisicao.toString());
-        logger.info("TELEFONE É NULL? {}", requisicao.getTelefone());
-        logger.info("ENDEREÇO {}", requisicao.getEndereco());
         medico.atualizaMedico(requisicao);
     }
 }
